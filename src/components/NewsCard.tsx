@@ -1,4 +1,4 @@
-import { NewsItem } from "@/data/newsData";
+import { NewsItem, departmentNames } from "@/data/newsData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar } from "lucide-react";
@@ -6,9 +6,10 @@ import { Calendar } from "lucide-react";
 interface NewsCardProps {
   news: NewsItem;
   onClick: () => void;
+  showDepartment?: boolean;
 }
 
-const NewsCard = ({ news, onClick }: NewsCardProps) => {
+const NewsCard = ({ news, onClick, showDepartment = false }: NewsCardProps) => {
   const sentimentColors = {
     positive: "bg-sentiment-positive text-white",
     negative: "bg-sentiment-negative text-white",
@@ -30,6 +31,11 @@ const NewsCard = ({ news, onClick }: NewsCardProps) => {
       className="group cursor-pointer overflow-hidden bg-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 animate-scale-in border border-border"
     >
       <div className="p-6">
+        {showDepartment && (
+          <Badge variant="outline" className="mb-3">
+            {departmentNames[news.department]}
+          </Badge>
+        )}
         <div className="flex items-start justify-between gap-4 mb-4">
           <h3 className="text-lg font-semibold text-card-foreground group-hover:text-primary transition-colors line-clamp-2">
             {news.headline}

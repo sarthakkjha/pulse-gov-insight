@@ -60,8 +60,8 @@ const Index = () => {
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
           <Button size="lg" asChild className="bg-gradient-primary shadow-glow hover:shadow-glow">
-            <Link to="/department/politics">
-              Explore Departments
+            <Link to="/all-news">
+              Browse All News
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
